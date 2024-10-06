@@ -4,6 +4,7 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
@@ -30,12 +31,21 @@ class MainActivity : ComponentActivity() {
 }
 
 @Composable
-fun GreetingText(message: String, modifier: Modifier = Modifier) {
-    Text(
-        text = "$message",
-        fontSize = 40.sp,
-        lineHeight = 50.sp
-    )
+fun GreetingText(message: String, from: String, modifier: Modifier = Modifier) {
+    Column(modifier=modifier) {
+        Text(
+            text = "$message",
+            fontSize = 80.sp,
+            lineHeight = 80.sp
+        )
+        Text(
+            text = "From $from",
+            fontSize = 40.sp,
+            lineHeight = 40.sp
+        )
+    }
+
+
 }
 
 @Preview(
@@ -45,7 +55,7 @@ fun GreetingText(message: String, modifier: Modifier = Modifier) {
 @Composable
 fun CardPreview() {
     JetpackComposeBasicsTheme {
-        GreetingText(message = "We love you Ketaki.")
+        GreetingText(message = "We love you Ketaki", from = "Harsha & Kaveri")
     }
 }
 
