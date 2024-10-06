@@ -11,6 +11,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.sp
 import com.example.jetpackcomposebasics.ui.theme.JetpackComposeBasicsTheme
 
 class MainActivity : ComponentActivity() {
@@ -30,14 +31,21 @@ class MainActivity : ComponentActivity() {
 
 @Composable
 fun GreetingText(message: String, modifier: Modifier = Modifier) {
-    Text(text = "$message")
+    Text(
+        text = "$message",
+        fontSize = 40.sp,
+        lineHeight = 50.sp
+    )
 }
 
-@Preview(showBackground = true)
+@Preview(
+    showBackground = true,
+    showSystemUi = true
+)
 @Composable
 fun CardPreview() {
     JetpackComposeBasicsTheme {
-        GreetingText(message = "We love you Ketaki")
+        GreetingText(message = "We love you Ketaki.")
     }
 }
 
