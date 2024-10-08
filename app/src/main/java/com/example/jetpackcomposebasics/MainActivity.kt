@@ -17,6 +17,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
@@ -74,7 +75,9 @@ fun GreetingImage(message: String, from: String, modifier: Modifier = Modifier) 
     Box(modifier = modifier) {
         Image(
             painter = image,
-            contentDescription = null
+            contentDescription = null,
+            contentScale = ContentScale.Crop,
+            alpha = 0.8f
         )
         GreetingText(message = message, from = from,
             modifier.fillMaxSize()
@@ -92,8 +95,8 @@ fun CardPreview() {
     JetpackComposeBasicsTheme {
         GreetingImage(
             message = "Happy Anniversary Harsha",
-            from = "Kaveri",
-            )
+            from = "Kaveri"
+        )
     }
 }
 
